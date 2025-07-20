@@ -1,0 +1,71 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+.cache/
+coverage/
+htmlcov/
+*.cover
+*.py,cover
+.tox/
+.nox/
+.mypy_cache/
+.dmypy.json
+.pytest_cache/
+.pyre/
+
+# FastAPI / Uvicorn / logs
+*.log
+logs/
+instance/
+.env
+.env.*
+
+# Environments
+venv/
+.venv/
+env/
+ENV/
+.Python
+
+# Poetry
+poetry.lock
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Test & coverage tools
+.coverage
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+**/__pycache__/
+docker-compose.override.yml
+*.db
+*.sqlite3
+*.pid

@@ -1,0 +1,49 @@
+@base_url = http://localhost:8000
+
+# @name login
+POST {{base_url}}/auth/login
+Content-Type: application/json
+
+{
+  "user_id": "1"
+}
+
+###
+
+@authToken = {{login.response.body.access_token}}
+
+###
+
+GET {{base_url}}/posts?published=True&limit=4&skip=0
+Authorization: Bearer {{authToken}}
+
+###
+
+POST {{base_url}}/posts
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "title": "Novo post 5",
+  "content": "Conteudo",
+  "published": true
+}
+
+###
+
+PATCH  {{base_url}}/posts/3
+Content-Type: application/json
+
+{
+  "content": "Conteudo2"
+}
+
+###
+
+GET   {{base_url}}/posts/4
+Content-Type: application/json
+
+###
+
+DELETE   http://localhost:8000/posts/4
+Content-Type: application/json
