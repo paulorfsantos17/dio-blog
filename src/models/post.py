@@ -1,6 +1,6 @@
 import sqlalchemy as sa
 
-from database import metadata
+from src.database import metadata
 
 posts = sa.Table(   
     'posts',
@@ -9,5 +9,6 @@ posts = sa.Table(
     sa.Column("title", sa.String(150), nullable=False, unique=True),
     sa.Column("content", sa.String, nullable=False),
     sa.Column("published_at", sa.DateTime, nullable=True),
-    sa.Column("published", sa.Boolean, default=False)
+    sa.Column("published", sa.Boolean, default=False),
+    extend_existing=True,
 ) 
