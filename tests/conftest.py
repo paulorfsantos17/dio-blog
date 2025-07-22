@@ -1,9 +1,11 @@
-import os
+
 
 import pytest_asyncio
 from httpx import ASGITransport, AsyncClient
 
-os.environ.setdefault("DATABASE_URL", "sqlite:///./test.db")
+from src.settings import settings
+
+settings.database_url = "sqlite:///test.db"
 
 @pytest_asyncio.fixture
 async def db():
@@ -34,6 +36,6 @@ async def client(db):
 
 
 @pytest_asyncio.fixture
-async def acess_token(client: AsyncClient):
+async def access_token(client: AsyncClient):
     response = await client.post("/auth/login", json={"user_id": 1})
     return response.json()["access_token"]

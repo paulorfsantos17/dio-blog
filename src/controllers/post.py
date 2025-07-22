@@ -18,7 +18,7 @@ service = PostService()
 
 
 @router.get("/", response_model=list[PostOut])
-async def read_posts(published: bool, limit: int = 5, skip: int = 1):
+async def read_posts(published: bool, limit: int = 5, skip: int = 0):
     posts  = await  service.read_all(published  = published, limit =  limit, skip = skip)
     return  posts
 

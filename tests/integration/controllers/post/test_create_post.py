@@ -2,10 +2,10 @@ from fastapi import status
 from httpx import AsyncClient
 
 
-async def test_create_post_success(client: AsyncClient, acess_token: str):
+async def test_create_post_success(client: AsyncClient, access_token: str):
   #Given
   headers = {
-    "Authorization": f"Bearer {acess_token}"
+    "Authorization": f"Bearer {access_token}"
   }
   
   data = {
@@ -23,10 +23,10 @@ async def test_create_post_success(client: AsyncClient, acess_token: str):
   assert response.status_code == status.HTTP_201_CREATED
   assert content["id"] is not None
   
-async def test_create_post_fail(client: AsyncClient, acess_token: str):
+async def test_create_post_fail(client: AsyncClient, access_token: str):
   #Given
   headers = {
-    "Authorization": f"Bearer {acess_token}"
+    "Authorization": f"Bearer {access_token}"
   }
   
   data = {
